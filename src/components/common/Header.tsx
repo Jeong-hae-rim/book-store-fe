@@ -3,27 +3,21 @@ import ThemeSwitcher from "../header/ThemeSwitcher";
 import logo from "../../assets/images/logo.png";
 import { FaSignInAlt, FaRegUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
-
-const CATEGORY = [
-  {
-    id: null,
-    name: "전체",
-  },
-  {
-    id: 0,
-    name: "동화",
-  },
-  {
-    id: 1,
-    name: "소설",
-  },
-  {
-    id: 2,
-    name: "사회",
-  },
-];
+import { useEffect, useState } from "react";
+import { Category } from "../../models/category.model";
+import { fetchCategory } from "../../api/category.api";
 
 export default function Header() {
+  const [category, setCategory] = useState<Category[]>([]);
+
+  useEffect(() => {
+    fetchCategory().then((category) => {
+      setCategory(category);
+    });
+  }, []);
+
+  console.log(category);
+
   return (
     <HeaderStyle>
       <h1 className="logo">
@@ -31,17 +25,17 @@ export default function Header() {
       </h1>
       <nav className="category">
         <ul>
-          {CATEGORY.map((item) => {
+          {category.map((item) => {
             return (
-              <li key={item.id}>
+              <li key={item.categoryId}>
                 <Link
                   to={
-                    item.id === null
+                    item.categoryId === null
                       ? "/books"
-                      : `/books?category_id=${item.id}`
+                      : `/books?category_id=${item.categoryId}`
                   }
                 >
-                  {item.name}
+                  {item.genre}
                 </Link>
               </li>
             );
