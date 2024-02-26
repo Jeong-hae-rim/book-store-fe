@@ -3,20 +3,11 @@ import ThemeSwitcher from "../header/ThemeSwitcher";
 import logo from "../../assets/images/logo.png";
 import { FaSignInAlt, FaRegUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { Category } from "../../models/category.model";
-import { fetchCategory } from "../../api/category.api";
+
+import { useCategory } from "../../hooks/useCategory";
 
 export default function Header() {
-  const [category, setCategory] = useState<Category[]>([]);
-
-  useEffect(() => {
-    fetchCategory().then((category) => {
-      setCategory(category);
-    });
-  }, []);
-
-  console.log(category);
+  const { category } = useCategory();
 
   return (
     <HeaderStyle>
