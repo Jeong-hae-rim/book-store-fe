@@ -11,7 +11,7 @@ export default function Home() {
       </Title>
       <div>home body</div>
       <div>count: {formatNumber(1000)}</div>
-      <Button size="large" scheme="normal">
+      <Button size="large" $scheme="normal">
         버튼 테스트
       </Button>
       <InputText placeholder="여기에 입력하세요"></InputText>

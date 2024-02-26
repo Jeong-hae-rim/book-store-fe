@@ -1,4 +1,4 @@
-import { logRoles, render, screen } from "@testing-library/react";
+import { logRoles, render, screen, waitFor } from "@testing-library/react";
 import Button from "./Button";
 import { BookStoreThemeProvider } from "../../context/themeContext";
 
@@ -7,7 +7,7 @@ describe("Title 컴포넌트 테스트", () => {
     //1. 렌더
     render(
       <BookStoreThemeProvider>
-        <Button size="large" scheme="primary">
+        <Button size="large" $scheme="primary">
           버튼
         </Button>
       </BookStoreThemeProvider>
@@ -21,7 +21,7 @@ describe("Title 컴포넌트 테스트", () => {
     //1. 렌더
     const { container } = render(
       <BookStoreThemeProvider>
-        <Button size="large" scheme="primary">
+        <Button size="large" $scheme="primary">
           버튼
         </Button>
       </BookStoreThemeProvider>
@@ -41,7 +41,7 @@ describe("Title 컴포넌트 테스트", () => {
     //1. 렌더
     const { container } = render(
       <BookStoreThemeProvider>
-        <Button size="large" scheme="primary">
+        <Button size="large" $scheme="primary">
           버튼
         </Button>
       </BookStoreThemeProvider>
@@ -60,7 +60,7 @@ describe("Title 컴포넌트 테스트", () => {
     //1. 렌더
     const { container } = render(
       <BookStoreThemeProvider>
-        <Button size="large" scheme="primary" disabled>
+        <Button size="large" $scheme="primary" disabled>
           버튼
         </Button>
       </BookStoreThemeProvider>
