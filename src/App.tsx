@@ -7,6 +7,8 @@ import SignUp from "./pages/Signup";
 import SignUpForm from "./components/form/SignUpForm";
 import ResetPassword from "./pages/ResetPassword";
 import ResetPasswordForm from "./components/form/ResetPasswordForm";
+import Login from "./pages/Login";
+import LoginForm from "./components/form/LoginForm";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +41,16 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <ResetPasswordForm />,
+      },
+    ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
+    children: [
+      {
+        index: true,
+        element: <LoginForm />,
       },
     ],
   },
