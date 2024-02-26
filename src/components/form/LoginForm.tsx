@@ -25,13 +25,18 @@ export default function LoginForm() {
   } = useForm<SignUpProps>();
 
   const onSubmit = (data: SignUpProps) => {
-    login(data).then((res) => {
-      //상태 변화
-      storeLogin(res.token);
+    login(data).then(
+      (res) => {
+        //상태 변화
+        storeLogin(res.token);
 
-      showAlert("로그인이 성공했습니다.");
-      navigate("/");
-    });
+        showAlert("로그인이 성공했습니다.");
+        navigate("/");
+      },
+      (error) => {
+        showAlert("로그인이 실패했습니다.");
+      }
+    );
   };
 
   return (
