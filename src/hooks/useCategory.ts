@@ -7,7 +7,9 @@ export const useCategory = () => {
 
   useEffect(() => {
     fetchCategory().then((category) => {
-      setCategory(category);
+      if (!category) return;
+
+      setCategory([{ categoryId: null, genre: "전체" }, ...category]);
     });
   }, []);
 
