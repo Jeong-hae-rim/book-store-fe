@@ -5,6 +5,7 @@ import { useAlert } from "../../hooks/useAlert";
 import { useForm } from "react-hook-form";
 import { login } from "../../api/auth.api";
 import { SignUpStyle } from "./SignUpForm";
+import { useAuthStore } from "../../store/authStore";
 
 export interface SignUpProps {
   email: string;
@@ -15,6 +16,8 @@ export default function LoginForm() {
   const navigate = useNavigate();
   const { showAlert } = useAlert();
 
+  const { isloggedIn, storeLogin, storeLogout } = useAuthStore();
+
   const {
     register,
     handleSubmit,
@@ -23,7 +26,9 @@ export default function LoginForm() {
 
   const onSubmit = (data: SignUpProps) => {
     login(data).then((res) => {
-      console.log(res.token);
+      //상태 변화
+      storeLogin(res.token);
+
       showAlert("로그인이 성공했습니다.");
       navigate("/");
     });
