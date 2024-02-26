@@ -1,7 +1,10 @@
 import { httpClient } from "./http";
 
 export const fetchCategory = async () => {
-  const response = await httpClient.get("/category");
-
-  return response.data;
+  try {
+    const response = await httpClient.get("/category");
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
 };

@@ -4,20 +4,15 @@ import { BookStoreThemeProvider } from "./context/themeContext";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Error from "./components/common/Error";
 import SignUp from "./pages/Signup";
+import SignUpForm from "./components/form/SignUpForm";
+import ResetPassword from "./pages/ResetPassword";
+import ResetPasswordForm from "./components/form/ResetPasswordForm";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <Layout>
-        <Home />
-      </Layout>
-    ),
-    errorElement: (
-      <Layout>
-        <Error />
-      </Layout>
-    ),
+    element: <Home />,
+    errorElement: <Error />,
   },
   {
     path: "/books",
@@ -29,11 +24,23 @@ const router = createBrowserRouter([
   },
   {
     path: "/sign-up",
-    element: (
-      <Layout>
-        <SignUp />
-      </Layout>
-    ),
+    element: <SignUp />,
+    children: [
+      {
+        index: true,
+        element: <SignUpForm />,
+      },
+    ],
+  },
+  {
+    path: "/reset",
+    element: <ResetPassword />,
+    children: [
+      {
+        index: true,
+        element: <ResetPasswordForm />,
+      },
+    ],
   },
 ]);
 
