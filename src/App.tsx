@@ -9,6 +9,7 @@ import ResetPassword from "./pages/ResetPassword";
 import ResetPasswordForm from "./components/form/ResetPasswordForm";
 import Login from "./pages/Login";
 import LoginForm from "./components/form/LoginForm";
+import Books from "./pages/Books";
 
 const router = createBrowserRouter([
   {
@@ -18,11 +19,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/books",
-    element: (
-      <Layout>
-        <div>도서 목록</div>
-      </Layout>
-    ),
+    element: <Books />,
   },
   {
     path: "/sign-up",

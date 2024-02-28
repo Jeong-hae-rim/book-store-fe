@@ -7,8 +7,12 @@ interface TitleProps {
   color?: ColorKey;
 }
 
-export default function Title({ children, size }: TitleProps) {
-  return <TitleStyle size={size}>{children}</TitleStyle>;
+export default function Title({ children, size, color }: TitleProps) {
+  return (
+    <TitleStyle size={size} color={color}>
+      {children}
+    </TitleStyle>
+  );
 }
 
 const TitleStyle = styled.h1<Omit<TitleProps, "children">>`

@@ -7,6 +7,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   $scheme: ButtonScheme;
   disabled?: boolean;
   isLoading?: boolean;
+  onClick?: () => void;
 }
 
 export default function Button({
@@ -15,6 +16,7 @@ export default function Button({
   $scheme,
   disabled,
   isLoading,
+  onClick,
 }: ButtonProps) {
   return (
     <ButtonStyle
@@ -22,6 +24,7 @@ export default function Button({
       $scheme={$scheme}
       disabled={disabled}
       isLoading={isLoading}
+      onClick={onClick}
     >
       {children}
     </ButtonStyle>

@@ -1,4 +1,4 @@
-import { logRoles, render, screen, waitFor } from "@testing-library/react";
+import { logRoles, render, screen } from "@testing-library/react";
 import Button from "./Button";
 import { BookStoreThemeProvider } from "../../context/themeContext";
 
