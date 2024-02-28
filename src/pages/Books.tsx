@@ -11,19 +11,31 @@ import { useBooks } from "../hooks/useBooks";
 export default function Books() {
   const { books, pagination, isEmpty } = useBooks();
 
-  console.log(books, pagination);
   return (
     <Layout>
       <Title size="large">도서 검색 결과</Title>
       <BooksStyle>
-        <BooksFilter />
-        <BooksViewSwitcher />
+        <div className="filter">
+          <BooksFilter />
+          <BooksViewSwitcher />
+        </div>
         {isEmpty && <BooksList books={books} />}
         {!isEmpty && <BooksEmpty />}
-        {isEmpty && <Pagination />}
+        <Pagination pagination={pagination} />
       </BooksStyle>
     </Layout>
   );
 }
 
-const BooksStyle = styled.div``;
+const BooksStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+
+  .filter {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+  }
+`;
