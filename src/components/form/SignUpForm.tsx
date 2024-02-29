@@ -56,7 +56,7 @@ export default function SignUpForm() {
           )}
         </fieldset>
         <fieldset>
-          <Button size="medium" $scheme="primary" type="submit">
+          <Button size="medium" schema="primary" type="submit">
             회원가입
           </Button>
         </fieldset>

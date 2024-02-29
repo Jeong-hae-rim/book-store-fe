@@ -34,7 +34,7 @@ export default function Pagination({ pagination }: Props) {
                 <Button
                   key={index}
                   size="small"
-                  $scheme={
+                  schema={
                     index + 1 === Number(currentPage) ? "primary" : "normal"
                   }
                   onClick={() => handleClickPage(index + 1)}

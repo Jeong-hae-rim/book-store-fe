@@ -41,7 +41,7 @@ export default function BooksViewSwitcher() {
           <Button
             key={option.value}
             size="medium"
-            $scheme={
+            schema={
               searchParams.get(QUERYSTRING.VIEW) === option.value
                 ? "primary"
                 : "normal"

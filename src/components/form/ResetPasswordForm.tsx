@@ -66,7 +66,7 @@ export default function ResetPasswordForm() {
           </fieldset>
         )}
         <fieldset>
-          <Button size="medium" $scheme="primary" type="submit">
+          <Button size="medium" schema="primary" type="submit">
             {resetRequested ? "비밀번호 초기화" : "비밀번호 초기화 요청"}
           </Button>
         </fieldset>

@@ -7,7 +7,7 @@ describe("Title 컴포넌트 테스트", () => {
     //1. 렌더
     render(
       <BookStoreThemeProvider>
-        <Button size="large" $scheme="primary">
+        <Button size="large" schema="primary">
           버튼
         </Button>
       </BookStoreThemeProvider>
@@ -21,7 +21,7 @@ describe("Title 컴포넌트 테스트", () => {
     //1. 렌더
     const { container } = render(
       <BookStoreThemeProvider>
-        <Button size="large" $scheme="primary">
+        <Button size="large" schema="primary">
           버튼
         </Button>
       </BookStoreThemeProvider>
@@ -41,7 +41,7 @@ describe("Title 컴포넌트 테스트", () => {
     //1. 렌더
     const { container } = render(
       <BookStoreThemeProvider>
-        <Button size="large" $scheme="primary">
+        <Button size="large" schema="primary">
           버튼
         </Button>
       </BookStoreThemeProvider>
@@ -60,7 +60,7 @@ describe("Title 컴포넌트 테스트", () => {
     //1. 렌더
     const { container } = render(
       <BookStoreThemeProvider>
-        <Button size="large" $scheme="primary" disabled>
+        <Button size="large" schema="primary" disabled>
           버튼
         </Button>
       </BookStoreThemeProvider>

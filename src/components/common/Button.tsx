@@ -1,44 +1,46 @@
-import { styled } from "styled-components";
-import { ButtonScheme, ButtonSize } from "../../style/theme";
+import styled from "styled-components";
+import { ButtonSchema, ButtonSize } from "../../style/theme";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   size: ButtonSize;
-  $scheme: ButtonScheme;
+  schema: ButtonSchema;
   disabled?: boolean;
   isLoading?: boolean;
-  onClick?: () => void;
 }
 
-export default function Button({
+const Button = ({
   children,
   size,
-  $scheme,
+  schema,
   disabled,
   isLoading,
-  onClick,
-}: ButtonProps) {
+  ...props
+}: Props) => {
   return (
     <ButtonStyle
+      {...props}
       size={size}
-      $scheme={$scheme}
+      schema={schema}
       disabled={disabled}
       isLoading={isLoading}
-      onClick={onClick}
     >
       {children}
     </ButtonStyle>
   );
-}
+};
 
-const ButtonStyle = styled.button<Omit<ButtonProps, "children">>`
+const ButtonStyle = styled.button<Omit<Props, "children">>`
   font-size: ${({ theme, size }) => theme.button[size].fontSize};
-  color: ${({ theme, $scheme }) => theme.buttonScheme[$scheme].color};
-  background-color: ${({ theme, $scheme }) =>
-    theme.buttonScheme[$scheme].backgroundColor};
+  padding: ${({ theme, size }) => theme.button[size].padding};
+  color: ${({ theme, schema }) => theme.buttonSchema[schema].color};
+  background-color: ${({ theme, schema }) =>
+    theme.buttonSchema[schema].backgroundColor};
   border: 0;
   border-radius: ${({ theme }) => theme.borderRadius.default};
   opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
   pointer-events: ${({ disabled }) => (disabled ? "none" : "auto")};
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? "none" : "pointer")};
 `;
+
+export default Button;

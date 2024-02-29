@@ -6,16 +6,15 @@ export type ColorKey =
   | "third"
   | "border"
   | "text";
+
 export type HeadingSize = "large" | "medium" | "small";
 export type ButtonSize = "large" | "medium" | "small";
-export type ButtonScheme = "primary" | "normal";
+export type ButtonSchema = "primary" | "normal" | "like";
 export type LayoutWidth = "large" | "medium" | "small";
 
 interface Theme {
   name: ThemeName;
-  color: {
-    [key in ColorKey]: string;
-  }; // Record<ColorKey, string>
+  color: Record<ColorKey, string>;
   heading: {
     [key in HeadingSize]: {
       fontSize: string;
@@ -27,8 +26,8 @@ interface Theme {
       padding: string;
     };
   };
-  buttonScheme: {
-    [key in ButtonScheme]: {
+  buttonSchema: {
+    [key in ButtonSchema]: {
       color: string;
       backgroundColor: string;
     };
@@ -48,10 +47,10 @@ export const light: Theme = {
   color: {
     primary: "#ff5800",
     secondary: "#5f5f5f",
+    background: "lightgrey",
     third: "green",
     border: "grey",
     text: "black",
-    background: "lightgrey",
   },
   heading: {
     large: {
@@ -78,14 +77,18 @@ export const light: Theme = {
       padding: "0.25rem 0.5rem",
     },
   },
-  buttonScheme: {
+  buttonSchema: {
     primary: {
       color: "white",
       backgroundColor: "midnightblue",
     },
     normal: {
       color: "black",
-      backgroundColor: "lightgrey",
+      backgroundColor: "lightgray",
+    },
+    like: {
+      color: "white",
+      backgroundColor: "coral",
     },
   },
   borderRadius: {
@@ -94,7 +97,7 @@ export const light: Theme = {
   layout: {
     width: {
       large: "1020px",
-      medium: "768px",
+      medium: "760px",
       small: "320px",
     },
   },
@@ -105,18 +108,19 @@ export const dark: Theme = {
   name: "dark",
   color: {
     primary: "coral",
-    background: "midnightblue",
     secondary: "darkblue",
+    background: "midnightblue",
     third: "darkgreen",
     border: "grey",
     text: "black",
   },
 };
 
-export const getTheme = (themeName: ThemeName): Theme => {
+export const getTheme = (themeName: ThemeName) => {
   switch (themeName) {
     case "light":
       return light;
+
     case "dark":
       return dark;
   }

@@ -39,7 +39,7 @@ export default function BooksFilter() {
           {category.map((item) => (
             <Button
               size="medium"
-              $scheme={item.isActive ? "primary" : "normal"}
+              schema={item.isActive ? "primary" : "normal"}
               key={item.categoryId}
               onClick={() => handleCategory(item.categoryId)}
             >
@@ -50,9 +50,7 @@ export default function BooksFilter() {
         <div className="new">
           <Button
             size="medium"
-            $scheme={
-              searchParams.get(QUERYSTRING.RECENT) ? "primary" : "normal"
-            }
+            schema={searchParams.get(QUERYSTRING.RECENT) ? "primary" : "normal"}
             onClick={handleNews}
           >
             신간

@@ -17,5 +17,5 @@ export interface Book {
 
 export interface BookDetail extends Book {
   genre: string;
-  liked: boolean;
+  isLiked: boolean;
 }

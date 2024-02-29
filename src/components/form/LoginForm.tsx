@@ -63,7 +63,7 @@ export default function LoginForm() {
           )}
         </fieldset>
         <fieldset>
-          <Button size="medium" $scheme="primary" type="submit">
+          <Button size="medium" schema="primary" type="submit">
             로그인
           </Button>
         </fieldset>
