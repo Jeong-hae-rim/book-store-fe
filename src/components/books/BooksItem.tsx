@@ -8,13 +8,13 @@ import { Link } from "react-router-dom";
 
 interface BookItemProps {
   book: Book;
-  view?: ViewMode;
+  $view?: ViewMode;
 }
 
-export default function BooksItem({ book, view }: BookItemProps) {
+export default function BooksItem({ book, $view }: BookItemProps) {
   return (
     <>
-      <BooksItemStyle view={view}>
+      <BooksItemStyle $view={$view}>
         <Link to={`/books/${book.id}`}>
           <div className="img">
             <img src={getImgSrc(book.img)} alt={book.title} />
@@ -34,15 +34,18 @@ export default function BooksItem({ book, view }: BookItemProps) {
   );
 }
 
-const BooksItemStyle = styled.div<Pick<BookItemProps, "view">>`
-  display: flex;
-  flex-direction: ${({ view }) => (view === "grid" ? "column" : "row")};
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+const BooksItemStyle = styled.div<Pick<BookItemProps, "$view">>`
+  a {
+    display: flex;
+    flex-direction: ${({ $view }) => ($view === "grid" ? "column" : "row")};
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+  }
 
   .img {
     border-radius: ${({ theme }) => theme.borderRadius.default};
     overflow: hidden;
-    width: ${({ view }) => (view === "grid" ? "auto" : "160px")};
+    width: ${({ $view }) => ($view === "grid" ? "auto" : "160px")};
     img {
       max-width: 100%;
     }
@@ -51,7 +54,7 @@ const BooksItemStyle = styled.div<Pick<BookItemProps, "view">>`
   .content {
     padding: 16px;
     position: relative;
-    flex: ${({ view }) => (view === "grid" ? "0" : "1")};
+    flex: ${({ $view }) => ($view === "grid" ? "0" : "1")};
 
     .title {
       font-size: 1.25rem;
