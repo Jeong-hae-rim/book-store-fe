@@ -4,6 +4,7 @@ import { getImgSrc } from "../../utils/image";
 import { formatNumber } from "../../utils/format";
 import { FaHeart } from "react-icons/fa";
 import { ViewMode } from "./BooksViewSwitcher";
+import { Link } from "react-router-dom";
 
 interface BookItemProps {
   book: Book;
@@ -14,18 +15,20 @@ export default function BooksItem({ book, view }: BookItemProps) {
   return (
     <>
       <BooksItemStyle view={view}>
-        <div className="img">
-          <img src={getImgSrc(book.img)} alt={book.title} />
-        </div>
-        <div className="content">
-          <h2 className="title">{book.title}</h2>
-          <p className="summary">{book.summary}</p>
-          <p className="author">{book.author}</p>
-          <p className="price">{formatNumber(book.price)}원</p>
-          <div className="likes">
-            <FaHeart /> {book.likes}
+        <Link to={`/books/${book.id}`}>
+          <div className="img">
+            <img src={getImgSrc(book.img)} alt={book.title} />
           </div>
-        </div>
+          <div className="content">
+            <h2 className="title">{book.title}</h2>
+            <p className="summary">{book.summary}</p>
+            <p className="author">{book.author}</p>
+            <p className="price">{formatNumber(book.price)}원</p>
+            <div className="likes">
+              <FaHeart /> {book.likes}
+            </div>
+          </div>
+        </Link>
       </BooksItemStyle>
     </>
   );

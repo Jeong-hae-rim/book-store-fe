@@ -9,7 +9,9 @@ import ResetPassword from "./pages/ResetPassword";
 import ResetPasswordForm from "./components/form/ResetPasswordForm";
 import Login from "./pages/Login";
 import LoginForm from "./components/form/LoginForm";
-import Books from "./pages/Books";
+import BookDetail from "./pages/Book/BookDetail";
+import BookIndex from "./pages/Book";
+import Book from "./pages/Book/Book";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +21,17 @@ const router = createBrowserRouter([
   },
   {
     path: "/books",
-    element: <Books />,
+    element: <BookIndex />,
+    children: [
+      {
+        index: true,
+        element: <Book />,
+      },
+      {
+        path: ":id",
+        element: <BookDetail />,
+      },
+    ],
   },
   {
     path: "/sign-up",
