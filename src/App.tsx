@@ -13,6 +13,7 @@ import BookDetail from "./pages/Book/BookDetail";
 import BookIndex from "./pages/Book";
 import Book from "./pages/Book/Book";
 import Cart from "./pages/Cart";
+import Order from "./pages/Order";
 
 const router = createBrowserRouter([
   {
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
   {
     path: "/cart",
     element: <Cart />,
+  },
+  {
+    path: "/order",
+    element: <Order />,
   },
 ]);
 

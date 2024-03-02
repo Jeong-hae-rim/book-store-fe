@@ -1,10 +1,11 @@
-import Sidebar from "../components/common/Sidebar";
+import { styled } from "styled-components";
 
 export default function Detail() {
   return (
-    <>
-      <Sidebar />
+    <DetailStyle>
       <div>Detail</div>
-    </>
+    </DetailStyle>
   );
 }
+
+const DetailStyle = styled.div``;
