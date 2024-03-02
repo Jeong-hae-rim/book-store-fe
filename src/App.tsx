@@ -12,6 +12,7 @@ import LoginForm from "./components/form/LoginForm";
 import BookDetail from "./pages/Book/BookDetail";
 import BookIndex from "./pages/Book";
 import Book from "./pages/Book/Book";
+import Cart from "./pages/Cart";
 
 const router = createBrowserRouter([
   {
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
         element: <LoginForm />,
       },
     ],
+  },
+  {
+    path: "/cart",
+    element: <Cart />,
   },
 ]);
 

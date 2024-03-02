@@ -1,15 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAlert } from "./useAlert";
-import { addToCarts } from "../api/carts.api";
+import { addToCarts, deleteToCarts, fetchCarts } from "../api/carts.api";
+import { Cart } from "../models/cart.model";
 
-export const useCart = (bookId: number) => {
+export const useCart = (bookId?: number) => {
   const [cartAdded, setCartAdded] = useState<boolean>(false);
+  const [carts, setCarts] = useState<Cart[]>([]);
+  const [isEmpty, setIsEmpty] = useState<boolean>(true);
 
   const { showAlert } = useAlert();
 
+  const deleteCartItem = (id: number) => {
+    deleteToCarts(id).then(() => {
+      setCarts(carts.filter((cart) => cart.id !== id));
+    });
+  };
+
+  useEffect(() => {
+    fetchCarts().then((res) => {
+      setCarts(res);
+      setIsEmpty(carts.length === 0);
+    });
+  }, []);
+
   const addToCart = (amount: number) => {
     addToCarts({
-      bookId: bookId,
+      bookId: bookId as number,
       amount: amount,
     })
       .then((res) => {
@@ -23,5 +39,5 @@ export const useCart = (bookId: number) => {
       });
   };
 
-  return { addToCart, cartAdded };
+  return { addToCart, cartAdded, carts, deleteCartItem };
 };
