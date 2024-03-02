@@ -8,6 +8,7 @@ import { CartStyle } from "./Cart";
 import InputText from "../components/common/InputText";
 import { useForm } from "react-hook-form";
 import { Delivery, OrderSheet } from "../models/order.model";
+import FindAddressButton from "../components/Button/FindAddressButton";
 
 interface DeliveryForm extends Delivery {
   addressDetail: string;
@@ -21,6 +22,7 @@ export default function Order() {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm<DeliveryForm>();
 
   const handlePay = (data: DeliveryForm) => {
@@ -54,9 +56,11 @@ export default function Order() {
                     {...register("address", { required: true })}
                   />
                 </div>
-                <Button size="medium" schema="normal">
-                  주소 찾기
-                </Button>
+                <FindAddressButton
+                  onCompleted={(address) => {
+                    setValue("address", address);
+                  }}
+                />
               </fieldset>
               {errors.address && (
                 <p className="error-text">주소를 입력해주세요.</p>
