@@ -17,8 +17,8 @@ export const useCart = (bookId?: number) => {
   };
 
   useEffect(() => {
-    fetchCarts().then((res) => {
-      setCarts(res);
+    fetchCarts().then((carts) => {
+      setCarts(carts);
       setIsEmpty(carts.length === 0);
     });
   }, []);
@@ -30,6 +30,7 @@ export const useCart = (bookId?: number) => {
     })
       .then((res) => {
         setCartAdded(true);
+        setIsEmpty(false);
         setTimeout(() => {
           setCartAdded(false);
         }, 3000);
@@ -39,5 +40,5 @@ export const useCart = (bookId?: number) => {
       });
   };
 
-  return { addToCart, cartAdded, carts, deleteCartItem };
+  return { addToCart, cartAdded, carts, deleteCartItem, isEmpty };
 };
