@@ -21,8 +21,6 @@ export default function Pagination({ pagination }: Props) {
     setSearchParams(newSearchParams);
   };
 
-  console.log(currentPage);
-
   return (
     <>
       <PaginationStyle>

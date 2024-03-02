@@ -59,6 +59,8 @@ export default function BookDetail() {
 
   if (!book) return null;
 
+  console.log(book);
+
   return (
     <>
       <BookDetailStyle>

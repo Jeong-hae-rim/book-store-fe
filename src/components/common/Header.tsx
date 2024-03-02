@@ -10,7 +10,7 @@ import Button from "./Button";
 
 export default function Header() {
   const { category } = useCategory();
-  const { isloggedIn, storeLogin, storeLogout } = useAuthStore();
+  const { isloggedIn, storeLogout } = useAuthStore();
 
   return (
     <HeaderStyle>

@@ -31,7 +31,7 @@ export default function LoginForm() {
         storeLogin(res.token);
 
         showAlert("로그인이 성공했습니다.");
-        navigate("/");
+        navigate("/", { replace: true });
       },
       (error) => {
         showAlert("로그인이 실패했습니다.");

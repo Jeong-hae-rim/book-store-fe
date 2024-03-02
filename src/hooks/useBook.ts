@@ -10,6 +10,16 @@ export const useBook = (bookId: string | undefined) => {
   const { showAlert } = useAlert();
   const { isloggedIn } = useAuthStore();
 
+  console.log(isloggedIn);
+
+  useEffect(() => {
+    if (!bookId) return;
+
+    fetchBook(bookId).then((res) => {
+      setBook(res);
+    });
+  }, [bookId]);
+
   const likeToggle = () => {
     if (!isloggedIn) {
       showAlert("로그인이 필요합니다.");
@@ -39,14 +49,6 @@ export const useBook = (bookId: string | undefined) => {
       });
     }
   };
-
-  useEffect(() => {
-    if (!bookId) return;
-
-    fetchBook(bookId).then((res) => {
-      setBook(res);
-    });
-  }, [bookId]);
 
   return { book, likeToggle };
 };

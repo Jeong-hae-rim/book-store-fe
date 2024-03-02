@@ -8,7 +8,8 @@ interface StoreState {
 
 export const getToken = () => {
   const token = localStorage.getItem("token");
-  return token;
+
+  return token?.toString();
 };
 
 const setToken = (token: string) => {
@@ -17,6 +18,8 @@ const setToken = (token: string) => {
 
 export const removeToken = () => {
   localStorage.removeItem("token");
+
+  window.location.reload();
 };
 
 export const useAuthStore = create<StoreState>((set) => ({
