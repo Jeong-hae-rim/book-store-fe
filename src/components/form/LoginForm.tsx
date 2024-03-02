@@ -16,7 +16,7 @@ export default function LoginForm() {
   const navigate = useNavigate();
   const { showAlert } = useAlert();
 
-  const { isloggedIn, storeLogin, storeLogout } = useAuthStore();
+  const { storeLogin } = useAuthStore();
 
   const {
     register,
