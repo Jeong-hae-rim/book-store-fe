@@ -1,20 +1,22 @@
-import Layout from "./components/layout/Layout";
-import Home from "./pages/Home";
-import { BookStoreThemeProvider } from "./context/themeContext";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Error from "./components/common/Error";
-import SignUp from "./pages/user_page/Signup";
-import SignUpForm from "./components/form/SignUpForm";
-import ResetPassword from "./pages/user_page/ResetPassword";
-import ResetPasswordForm from "./components/form/ResetPasswordForm";
-import Login from "./pages/user_page/Login";
-import LoginForm from "./components/form/LoginForm";
-import BookDetail from "./pages/book_page/BookDetail";
-import BookIndex from "./pages/book_page";
-import Book from "./pages/book_page/Book";
-import Cart from "./pages/cart_page/Cart";
-import Order from "./pages/order_page/Order";
-import OrderList from "./pages/order_page/OrderList";
+
+import { BookStoreThemeProvider } from "@/context/themeContext";
+
+import Error from "@/components/common/Error";
+import LoginForm from "@/components/form/LoginForm";
+import SignUpForm from "@/components/form/SignUpForm";
+import ResetPasswordForm from "@/components/form/ResetPasswordForm";
+
+import Home from "@/pages/Home";
+import Login from "@/pages/user_page/Login";
+import SignUp from "@/pages/user_page/SignUp";
+import ResetPassword from "@/pages/user_page/ResetPassword";
+import Book from "@/pages/book_page/Book";
+import BookIndex from "@/pages/book_page";
+import BookDetail from "@/pages/book_page/BookDetail";
+import Cart from "@/pages/cart_page/Cart";
+import Order from "@/pages/order_page/Order";
+import OrderList from "@/pages/order_page/OrderList";
 
 const router = createBrowserRouter([
   {
