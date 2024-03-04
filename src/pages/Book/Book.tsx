@@ -1,10 +1,10 @@
 import { styled } from "styled-components";
 import Title from "../../components/common/Title";
-import BooksFilter from "../../components/books/BooksFilter";
-import BooksViewSwitcher from "../../components/books/BooksViewSwitcher";
-import BooksList from "../../components/books/BooksList";
-import BooksEmpty from "../../components/books/BooksEmpty";
-import Pagination from "../../components/books/Pagination";
+import BooksFilter from "../../components/Books/BooksFilter";
+import BooksViewSwitcher from "../../components/Books/BooksViewSwitcher";
+import BooksList from "../../components/Books/BooksList";
+import BooksEmpty from "../../components/Books/BooksEmpty";
+import Pagination from "../../components/Books/Pagination";
 import { useBooks } from "../../hooks/useBooks";
 
 export default function Book() {

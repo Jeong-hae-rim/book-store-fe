@@ -9,7 +9,7 @@ import { formatDate, formatNumber } from "../../utils/format";
 import { Link } from "react-router-dom";
 import EllipsisBox from "../../components/common/EllipsisBox";
 import Like from "../../components/Button/Like";
-import AddToCart from "../../components/books/AddToCart";
+import AddToCart from "../../components/Books/AddToCart";
 
 const bookInfoList = [
   {
