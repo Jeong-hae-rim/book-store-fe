@@ -3,18 +3,18 @@ import Home from "./pages/Home";
 import { BookStoreThemeProvider } from "./context/themeContext";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Error from "./components/common/Error";
-import SignUp from "./pages/Signup";
+import SignUp from "./pages/user_page/Signup";
 import SignUpForm from "./components/form/SignUpForm";
-import ResetPassword from "./pages/ResetPassword";
+import ResetPassword from "./pages/user_page/ResetPassword";
 import ResetPasswordForm from "./components/form/ResetPasswordForm";
-import Login from "./pages/Login";
+import Login from "./pages/user_page/Login";
 import LoginForm from "./components/form/LoginForm";
-import BookDetail from "./pages/Book/BookDetail";
-import BookIndex from "./pages/Book";
-import Book from "./pages/Book/Book";
-import Cart from "./pages/Cart";
-import Order from "./pages/Order";
-import OrderList from "./pages/OrderList";
+import BookDetail from "./pages/book_page/BookDetail";
+import BookIndex from "./pages/book_page";
+import Book from "./pages/book_page/Book";
+import Cart from "./pages/cart_page/Cart";
+import Order from "./pages/order_page/Order";
+import OrderList from "./pages/order_page/OrderList";
 
 const router = createBrowserRouter([
   {
