@@ -7,7 +7,7 @@ import { getImgSrc } from "@/utils/image";
 import { formatNumber } from "@/utils/format";
 
 import { FaHeart } from "react-icons/fa";
-import { ViewMode } from "@/components/Books/BooksViewSwitcher";
+import { ViewMode } from "@/components/books/BooksViewSwitcher";
 
 interface BookItemProps {
   book: Book;

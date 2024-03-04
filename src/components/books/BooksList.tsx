@@ -6,8 +6,8 @@ import { Book } from "@/models/book.model";
 
 import { QUERYSTRING } from "@/constants/querystring";
 
-import BooksItem from "@/components/Books/BooksItem";
-import { ViewMode } from "@/components/Books/BooksViewSwitcher";
+import BooksItem from "@/components/books/BooksItem";
+import { ViewMode } from "@/components/books/BooksViewSwitcher";
 
 interface Props {
   books: Book[];
