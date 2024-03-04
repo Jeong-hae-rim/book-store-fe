@@ -1,12 +1,13 @@
-import { styled } from "styled-components";
-import ThemeSwitcher from "../header/ThemeSwitcher";
-import logo from "../../assets/images/logo.png";
-import { FaSignInAlt, FaRegUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { styled } from "styled-components";
 
-import { useCategory } from "../../hooks/useCategory";
-import { useAuthStore } from "../../store/authStore";
-import Button from "./Button";
+import { useAuthStore } from "@/store/authStore";
+import { useCategory } from "@/hooks/useCategory";
+
+import logo from "@/assets/images/logo.png";
+
+import { FaSignInAlt, FaRegUser } from "react-icons/fa";
+import ThemeSwitcher from "@/components/header/ThemeSwitcher";
 
 export default function Header() {
   const { category } = useCategory();
