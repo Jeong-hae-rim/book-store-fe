@@ -1,5 +1,5 @@
-import { SignUpProps } from "../components/form/SignUpForm";
-import { httpClient } from "./http";
+import { httpClient } from "@/api/http";
+import { SignUpProps } from "@/components/form/SignUpForm";
 
 export const signUp = async (userData: SignUpProps) => {
   const response = await httpClient.post("/users/join", userData);

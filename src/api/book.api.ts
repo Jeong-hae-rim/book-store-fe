@@ -1,7 +1,6 @@
-import { NumberLiteralType } from "typescript";
-import { httpClient } from "./http";
-import { Book, BookDetail } from "../models/book.model";
-import { Pagination } from "../models/pagination.model";
+import { httpClient } from "@/api/http";
+import { Book, BookDetail } from "@/models/book.model";
+import { Pagination } from "@/models/pagination.model";
 
 interface FetchBooksPrams {
   categoryId?: number;

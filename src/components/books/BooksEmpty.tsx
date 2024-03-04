@@ -1,6 +1,7 @@
-import { FaSmileWink } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Empty from "../common/Empty";
+
+import { FaSmileWink } from "react-icons/fa";
+import Empty from "@/components/common/Empty";
 
 export default function BooksEmpty() {
   return (

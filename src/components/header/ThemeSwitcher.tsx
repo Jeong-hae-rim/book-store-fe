@@ -1,6 +1,7 @@
 import { useContext } from "react";
-import { ThemeName } from "../../style/theme";
-import { ThemeContext } from "../../context/themeContext";
+
+import { ThemeName } from "@/style/theme";
+import { ThemeContext } from "@/context/themeContext";
 
 interface Props {
   themeName: ThemeName;

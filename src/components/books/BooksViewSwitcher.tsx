@@ -1,9 +1,11 @@
-import { styled } from "styled-components";
-import Button from "../common/Button";
-import { FaList, FaTh } from "react-icons/fa";
-import { useSearchParams } from "react-router-dom";
-import { QUERYSTRING } from "../../constants/querystring";
 import { useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
+import { styled } from "styled-components";
+
+import { QUERYSTRING } from "@/constants/querystring";
+
+import { FaList, FaTh } from "react-icons/fa";
+import Button from "../common/Button";
 
 const viewOptions = [
   {

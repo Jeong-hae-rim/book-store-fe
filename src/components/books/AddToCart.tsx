@@ -1,10 +1,12 @@
-import { styled } from "styled-components";
-import { BookDetail } from "../../models/book.model";
-import InputText from "../common/InputText";
-import Button from "../common/Button";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useCart } from "../../hooks/useCart";
+import { styled } from "styled-components";
+
+import { BookDetail } from "@/models/book.model";
+import { useCart } from "@/hooks/useCart";
+
+import InputText from "@/components/common/InputText";
+import Button from "@/components/common/Button";
 
 interface Props {
   book: BookDetail;
