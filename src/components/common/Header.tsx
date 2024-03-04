@@ -44,7 +44,7 @@ export default function Header() {
               <Link to="/cart">장바구니</Link>
             </li>
             <li>
-              <Link to="/order">주문내역</Link>
+              <Link to="/orderlist">주문내역</Link>
             </li>
             <li>
               <button onClick={storeLogout}>로그아웃</button>

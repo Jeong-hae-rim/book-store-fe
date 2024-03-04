@@ -12,7 +12,6 @@ import { CartStyle } from "@/pages/cart_page/Cart";
 
 import Title from "@/components/common/Title";
 import Button from "@/components/common/Button";
-import Layout from "@/components/layout/Layout";
 import InputText from "@/components/common/InputText";
 import CartSummary from "@/components/cart/CartSummary";
 import FindAddressButton from "@/components/button/FindAddressButton";
@@ -57,7 +56,7 @@ export default function Order() {
   };
 
   return (
-    <Layout>
+    <>
       <Title size="large">주문서 작성</Title>
       <CartStyle>
         <div className="content">
@@ -141,7 +140,7 @@ export default function Order() {
           </Button>
         </div>
       </CartStyle>
-    </Layout>
+    </>
   );
 }
 
