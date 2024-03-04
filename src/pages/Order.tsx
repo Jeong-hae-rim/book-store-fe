@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import Layout from "../components/layout/Layout";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Title from "../components/common/Title";
 import CartSummary from "../components/cart/CartSummary";
 import Button from "../components/common/Button";
@@ -9,6 +9,8 @@ import InputText from "../components/common/InputText";
 import { useForm } from "react-hook-form";
 import { Delivery, OrderSheet } from "../models/order.model";
 import FindAddressButton from "../components/Button/FindAddressButton";
+import { order } from "../api/order.api";
+import { useAlert } from "../hooks/useAlert";
 
 interface DeliveryForm extends Delivery {
   addressDetail: string;
@@ -24,6 +26,8 @@ export default function Order() {
     formState: { errors },
     setValue,
   } = useForm<DeliveryForm>();
+  const { showAlert, showConfirm } = useAlert();
+  const navigate = useNavigate();
 
   const handlePay = (data: DeliveryForm) => {
     const orderData: OrderSheet = {
@@ -35,7 +39,16 @@ export default function Order() {
     };
 
     //서버로 넘겨줘야 한다.
-    console.log(orderData);
+    showConfirm("주문하시겠습니까?", () =>
+      order(orderData)
+        .then((res) => {
+          showAlert("주문이 처리되었습니다.");
+          navigate("/orderlist");
+        })
+        .catch((res) => {
+          showAlert("주문이 실패했습니다.");
+        })
+    );
   };
 
   return (

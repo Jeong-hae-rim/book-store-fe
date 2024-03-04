@@ -14,6 +14,7 @@ import BookIndex from "./pages/Book";
 import Book from "./pages/Book/Book";
 import Cart from "./pages/Cart";
 import Order from "./pages/Order";
+import OrderList from "./pages/OrderList";
 
 const router = createBrowserRouter([
   {
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
   {
     path: "/order",
     element: <Order />,
+  },
+  {
+    path: "/orderlist",
+    element: <OrderList />,
   },
 ]);
 
