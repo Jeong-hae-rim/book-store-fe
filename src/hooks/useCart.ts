@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
-import { useAlert } from "./useAlert";
-import { addToCarts, deleteToCarts, fetchCarts } from "../api/carts.api";
-import { Cart } from "../models/cart.model";
+
+import { Cart } from "@/models/cart.model";
+
+import { addToCarts, deleteToCarts, fetchCarts } from "@/api/carts.api";
+
+import { useAlert } from "@/hooks/useAlert";
 
 export const useCart = (bookId?: number) => {
   const [cartAdded, setCartAdded] = useState<boolean>(false);

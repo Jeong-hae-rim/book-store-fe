@@ -1,6 +1,7 @@
 import { logRoles, render, screen } from "@testing-library/react";
-import Button from "./Button";
-import { BookStoreThemeProvider } from "../../context/themeContext";
+
+import { BookStoreThemeProvider } from "@/context/themeContext";
+import Button from "@/components/common/Button";
 
 describe("Title 컴포넌트 테스트", () => {
   it("렌더 확인", () => {

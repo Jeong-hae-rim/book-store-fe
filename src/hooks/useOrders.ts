@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import { OrderListItem } from "../models/order.model";
-import { fetchOrderDetail, fetchOrders, order } from "../api/order.api";
+
+import { OrderListItem } from "@/models/order.model";
+
+import { fetchOrderDetail, fetchOrders } from "@/api/order.api";
 
 export const useOrders = () => {
   const [orders, setOrders] = useState<OrderListItem[]>([]);

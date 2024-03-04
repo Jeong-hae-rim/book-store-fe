@@ -1,8 +1,10 @@
 import { styled } from "styled-components";
-import { useCategory } from "../../hooks/useCategory";
-import Button from "../common/Button";
 import { useSearchParams } from "react-router-dom";
-import { QUERYSTRING } from "../../constants/querystring";
+
+import { useCategory } from "@/hooks/useCategory";
+import { QUERYSTRING } from "@/constants/querystring";
+
+import Button from "@/components/common/Button";
 
 export default function BooksFilter() {
   const { category } = useCategory();

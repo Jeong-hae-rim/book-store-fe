@@ -1,16 +1,21 @@
-import { styled } from "styled-components";
-import Layout from "../components/layout/Layout";
 import { useLocation, useNavigate } from "react-router-dom";
-import Title from "../components/common/Title";
-import CartSummary from "../components/cart/CartSummary";
-import Button from "../components/common/Button";
-import { CartStyle } from "./Cart";
-import InputText from "../components/common/InputText";
 import { useForm } from "react-hook-form";
-import { Delivery, OrderSheet } from "../models/order.model";
-import FindAddressButton from "../components/Button/FindAddressButton";
-import { order } from "../api/order.api";
-import { useAlert } from "../hooks/useAlert";
+import { styled } from "styled-components";
+
+import { Delivery, OrderSheet } from "@/models/order.model";
+
+import { order } from "@/api/order.api";
+
+import { useAlert } from "@/hooks/useAlert";
+
+import { CartStyle } from "@/pages/cart_page/Cart";
+
+import Title from "@/components/common/Title";
+import Button from "@/components/common/Button";
+import Layout from "@/components/layout/Layout";
+import InputText from "@/components/common/InputText";
+import CartSummary from "@/components/cart/CartSummary";
+import FindAddressButton from "@/components/button/FindAddressButton";
 
 interface DeliveryForm extends Delivery {
   addressDetail: string;

@@ -1,15 +1,16 @@
-import { styled } from "styled-components";
-import Title from "../components/common/Title";
-import Layout from "../components/layout/Layout";
-import { useOrders } from "../hooks/useOrders";
-import { formatNumber, formatDate } from "../utils/format";
-import Button from "../components/common/Button";
 import { Fragment } from "react";
+import { styled } from "styled-components";
+
+import { formatNumber, formatDate } from "@/utils/format";
+
+import { useOrders } from "@/hooks/useOrders";
+
+import Title from "@/components/common/Title";
+import Button from "@/components/common/Button";
+import Layout from "@/components/layout/Layout";
 
 export default function OrderList() {
   const { orders, selectOrderItem, selectedItemId } = useOrders();
-
-  console.log(orders);
 
   return (
     <Layout>

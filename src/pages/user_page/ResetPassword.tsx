@@ -1,6 +1,7 @@
-import Title from "../components/common/Title";
 import { Outlet } from "react-router-dom";
-import Layout from "../components/layout/Layout";
+
+import Title from "@/components/common/Title";
+import Layout from "@/components/layout/Layout";
 
 export default function ResetPassword() {
   return (

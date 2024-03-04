@@ -1,16 +1,20 @@
-import { styled } from "styled-components";
-import Title from "../components/common/Title";
-import Layout from "../components/layout/Layout";
-import CartItem from "../components/cart/CartItem";
-import { useCart } from "../hooks/useCart";
 import { useMemo, useState } from "react";
-import Empty from "../components/common/Empty";
-import { FaShoppingCart } from "react-icons/fa";
-import CartSummary from "../components/cart/CartSummary";
-import Button from "../components/common/Button";
-import { useAlert } from "../hooks/useAlert";
-import { OrderSheet } from "../models/order.model";
 import { useNavigate } from "react-router-dom";
+
+import { styled } from "styled-components";
+
+import { OrderSheet } from "@/models/order.model";
+
+import { useCart } from "@/hooks/useCart";
+import { useAlert } from "@/hooks/useAlert";
+
+import { FaShoppingCart } from "react-icons/fa";
+import Title from "@/components/common/Title";
+import Empty from "@/components/common/Empty";
+import Layout from "@/components/layout/Layout";
+import Button from "@/components/common/Button";
+import CartItem from "@/components/cart/CartItem";
+import CartSummary from "@/components/cart/CartSummary";
 
 export default function Cart() {
   const { carts, deleteCartItem, isEmpty } = useCart();

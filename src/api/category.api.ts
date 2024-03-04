@@ -1,4 +1,4 @@
-import { httpClient } from "./http";
+import { httpClient } from "@/api/http";
 
 export const fetchCategory = async () => {
   try {

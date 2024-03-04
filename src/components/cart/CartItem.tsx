@@ -1,11 +1,14 @@
-import styled from "styled-components";
-import { Cart } from "../../models/cart.model";
-import Button from "../common/Button";
-import Title from "../common/Title";
-import { formatNumber } from "../../utils/format";
-import CheckIconButton from "./CheckIconButton";
 import { useMemo } from "react";
-import { useAlert } from "../../hooks/useAlert";
+import styled from "styled-components";
+
+import { Cart } from "@/models/cart.model";
+
+import { useAlert } from "@/hooks/useAlert";
+import { formatNumber } from "@/utils/format";
+
+import Title from "@/components/common/Title";
+import Button from "@/components/common/Button";
+import CheckIconButton from "@/components/cart/CheckIconButton";
 
 interface Props {
   cart: Cart;

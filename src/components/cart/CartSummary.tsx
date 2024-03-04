@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { formatNumber } from "../../utils/format";
+
+import { formatNumber } from "@/utils/format";
 
 interface Props {
   totalAmount: number;
