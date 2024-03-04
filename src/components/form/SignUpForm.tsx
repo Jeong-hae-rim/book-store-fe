@@ -11,6 +11,7 @@ import InputText from "@/components/common/InputText";
 export interface SignUpProps {
   email: string;
   password: string;
+  token?: string;
 }
 
 export default function SignUpForm() {

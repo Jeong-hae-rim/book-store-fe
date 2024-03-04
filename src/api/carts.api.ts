@@ -1,4 +1,4 @@
-import { httpClient } from "@/api/http";
+import { requestHandler } from "@/api/http";
 import { Cart } from "@/models/cart.model";
 
 interface AddToCartProps {
@@ -6,20 +6,14 @@ interface AddToCartProps {
   amount: number;
 }
 
-export const addToCarts = async (params: AddToCartProps) => {
-  const response = await httpClient.post("/carts", params);
-
-  return response.data;
+export const fetchCarts = async () => {
+  return await requestHandler<Cart[]>("get", "/carts");
 };
 
-export const fetchCarts = async () => {
-  const response = await httpClient.get<Cart[]>("/carts");
-
-  return response.data;
+export const addToCarts = async (params: AddToCartProps) => {
+  return await requestHandler<AddToCartProps>("post", "/carts", params);
 };
 
 export const deleteToCarts = async (cartId: number) => {
-  const response = await httpClient.delete(`/carts/${cartId}`);
-
-  return response.data;
+  return await requestHandler<AddToCartProps>("delete", `/carts/${cartId}`);
 };
