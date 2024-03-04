@@ -1,5 +1,5 @@
-import { Cart } from "../models/cart.model";
-import { httpClient } from "./http";
+import { httpClient } from "@/api/http";
+import { Cart } from "@/models/cart.model";
 
 interface AddToCartProps {
   bookId: number;
