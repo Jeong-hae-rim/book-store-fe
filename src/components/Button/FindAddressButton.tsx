@@ -1,6 +1,7 @@
-import { styled } from "styled-components";
-import Button from "../common/Button";
 import { useEffect } from "react";
+import { styled } from "styled-components";
+
+import Button from "@/components/common/Button";
 
 interface Props {
   onCompleted: (address: string) => void;
