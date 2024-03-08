@@ -9,7 +9,7 @@ import ResetPasswordForm from "@/components/form/ResetPasswordForm";
 
 import Home from "@/pages/Home";
 import Login from "@/pages/user_page/Login";
-import SignUp from "@/pages/user_page/SignUp";
+import SignUp from "@/pages/user_page/Signup";
 import ResetPassword from "@/pages/user_page/ResetPassword";
 import Book from "@/pages/book_page/Book";
 import BookIndex from "@/pages/book_page";
