@@ -19,3 +19,11 @@ export interface BookDetail extends Book {
   genre: string;
   isLiked: boolean | number;
 }
+
+export interface BookReviewItem {
+  id: number;
+  userName: string;
+  content: string;
+  createdAt: string;
+  score: number;
+}

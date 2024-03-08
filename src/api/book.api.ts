@@ -1,5 +1,5 @@
 import { httpClient, requestHandler } from "@/api/http";
-import { Book, BookDetail } from "@/models/book.model";
+import { Book, BookDetail, BookReviewItem } from "@/models/book.model";
 import { Pagination } from "@/models/pagination.model";
 
 interface FetchBooksPrams {
@@ -43,4 +43,8 @@ export const likeBook = async (bookId: number) => {
 
 export const unLikeBook = async (bookId: number) => {
   return await requestHandler("delete", `likes/${bookId}`);
+};
+
+export const fetchBookReview = async (bookId: string) => {
+  return await requestHandler<BookReviewItem[]>("get", `/reviews/${bookId}`);
 };

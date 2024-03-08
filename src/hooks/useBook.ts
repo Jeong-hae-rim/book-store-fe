@@ -1,14 +1,20 @@
 import { useEffect, useState } from "react";
 
-import { BookDetail } from "@/models/book.model";
+import { BookDetail, BookReviewItem } from "@/models/book.model";
 import { useAuthStore } from "@/store/authStore";
 
-import { fetchBook, likeBook, unLikeBook } from "@/api/book.api";
+import {
+  fetchBook,
+  fetchBookReview,
+  likeBook,
+  unLikeBook,
+} from "@/api/book.api";
 
 import { useAlert } from "@/hooks/useAlert";
 
 export const useBook = (bookId: string | undefined) => {
   const [book, setBook] = useState<BookDetail | null>(null);
+  const [reviews, setReviews] = useState<BookReviewItem[]>([]);
 
   const { showAlert } = useAlert();
   const { isloggedIn } = useAuthStore();
@@ -20,6 +26,10 @@ export const useBook = (bookId: string | undefined) => {
 
     fetchBook(bookId).then((res) => {
       setBook(res);
+    });
+
+    fetchBookReview(bookId).then((res) => {
+      setReviews(res);
     });
   }, [bookId]);
 
@@ -53,5 +63,5 @@ export const useBook = (bookId: string | undefined) => {
     }
   };
 
-  return { book, likeToggle };
+  return { book, likeToggle, reviews };
 };
