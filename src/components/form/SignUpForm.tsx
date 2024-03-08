@@ -2,16 +2,10 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { styled } from "styled-components";
 
-import { useAuth } from "@/hooks/useAuth";
+import { UserProps, useAuth } from "@/hooks/useAuth";
 
 import Button from "@/components/common/Button";
 import InputText from "@/components/common/InputText";
-
-export interface SignUpProps {
-  email: string;
-  password: string;
-  token?: string;
-}
 
 export default function SignUpForm() {
   const { userSignUp } = useAuth();
@@ -20,9 +14,9 @@ export default function SignUpForm() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<SignUpProps>();
+  } = useForm<UserProps>();
 
-  const onSubmit = (data: SignUpProps) => {
+  const onSubmit = (data: UserProps) => {
     userSignUp(data);
   };
 

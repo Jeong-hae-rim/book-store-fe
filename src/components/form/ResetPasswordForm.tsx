@@ -1,15 +1,10 @@
 import { useForm } from "react-hook-form";
 
-import { useAuth } from "@/hooks/useAuth";
+import { UserProps, useAuth } from "@/hooks/useAuth";
 
 import Button from "@/components/common/Button";
 import { SignUpStyle } from "@/components/form/SignUpForm";
 import InputText from "@/components/common/InputText";
-
-export interface SignUpProps {
-  email: string;
-  password: string;
-}
 
 export default function ResetPasswordForm() {
   const { resetRequested, userResetRequest, userResetPassword } = useAuth();
@@ -18,9 +13,9 @@ export default function ResetPasswordForm() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<SignUpProps>();
+  } = useForm<UserProps>();
 
-  const onSubmit = (data: SignUpProps) => {
+  const onSubmit = (data: UserProps) => {
     resetRequested ? userResetRequest(data) : userResetPassword(data);
   };
 

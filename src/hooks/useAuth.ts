@@ -1,10 +1,14 @@
 import { login, resetPassword, resetRequest, signUp } from "@/api/auth.api";
-import { LoginProps } from "@/components/form/LoginForm";
 import { useAuthStore } from "@/store/authStore";
-import { useAlert } from "./useAlert";
+import { useAlert } from "@/hooks/useAlert";
 import { useNavigate } from "react-router-dom";
-import { SignUpProps } from "@/components/form/SignUpForm";
 import { useState } from "react";
+
+export interface UserProps {
+  email: string;
+  password: string;
+  token?: string;
+}
 
 export const useAuth = () => {
   const [resetRequested, setResetRequested] = useState(false);
@@ -12,7 +16,7 @@ export const useAuth = () => {
   const { showAlert } = useAlert();
   const navigate = useNavigate();
 
-  const userLogin = (data: LoginProps) => {
+  const userLogin = (data: UserProps) => {
     login(data).then(
       (res) => {
         //상태 변화
@@ -27,7 +31,7 @@ export const useAuth = () => {
     );
   };
 
-  const userSignUp = (data: SignUpProps) => {
+  const userSignUp = (data: UserProps) => {
     signUp(data)
       .then((res) => {
         showAlert("회원가입이 완료되었습니다.");
@@ -38,13 +42,13 @@ export const useAuth = () => {
       });
   };
 
-  const userResetRequest = (data: LoginProps) => {
+  const userResetRequest = (data: UserProps) => {
     resetRequest(data).then(() => {
       setResetRequested(true);
     });
   };
 
-  const userResetPassword = (data: LoginProps) => {
+  const userResetPassword = (data: UserProps) => {
     resetPassword(data).then(() => {
       showAlert("비밀번호가 초기화되었습니다.");
       navigate("/login");

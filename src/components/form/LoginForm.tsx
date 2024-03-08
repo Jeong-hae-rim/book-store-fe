@@ -1,15 +1,10 @@
 import { useForm } from "react-hook-form";
 
-import { useAuth } from "@/hooks/useAuth";
+import { UserProps, useAuth } from "@/hooks/useAuth";
 
 import Button from "@/components/common/Button";
 import { SignUpStyle } from "@/components/form/SignUpForm";
 import InputText from "@/components/common/InputText";
-
-export interface LoginProps {
-  email: string;
-  password: string;
-}
 
 export default function LoginForm() {
   const { userLogin } = useAuth();
@@ -18,9 +13,9 @@ export default function LoginForm() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginProps>();
+  } = useForm<UserProps>();
 
-  const onSubmit = (data: LoginProps) => {
+  const onSubmit = (data: UserProps) => {
     userLogin(data);
   };
 
