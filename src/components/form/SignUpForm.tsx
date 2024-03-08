@@ -1,37 +1,23 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { styled } from "styled-components";
 
-import { signUp } from "@/api/auth.api";
-import { useAlert } from "@/hooks/useAlert";
+import { UserProps, useAuth } from "@/hooks/useAuth";
 
 import Button from "@/components/common/Button";
 import InputText from "@/components/common/InputText";
 
-export interface SignUpProps {
-  email: string;
-  password: string;
-}
-
 export default function SignUpForm() {
-  const navigate = useNavigate();
-  const { showAlert } = useAlert();
+  const { userSignUp } = useAuth();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<SignUpProps>();
+  } = useForm<UserProps>();
 
-  const onSubmit = (data: SignUpProps) => {
-    signUp(data)
-      .then((res) => {
-        showAlert("회원가입이 완료되었습니다.");
-        navigate("/login");
-      })
-      .catch((err) => {
-        showAlert("회원가입이 실패했습니다.");
-      });
+  const onSubmit = (data: UserProps) => {
+    userSignUp(data);
   };
 
   return (

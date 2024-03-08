@@ -1,10 +1,7 @@
-import { httpClient } from "@/api/http";
+import { requestHandler } from "@/api/http";
+
+import { Category } from "@/models/category.model";
 
 export const fetchCategory = async () => {
-  try {
-    const response = await httpClient.get("/category");
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching data:", error);
-  }
+  return await requestHandler<Category>("get", "/category");
 };

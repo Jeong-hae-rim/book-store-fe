@@ -7,13 +7,12 @@ import { useOrders } from "@/hooks/useOrders";
 
 import Title from "@/components/common/Title";
 import Button from "@/components/common/Button";
-import Layout from "@/components/layout/Layout";
 
 export default function OrderList() {
   const { orders, selectOrderItem, selectedItemId } = useOrders();
 
   return (
-    <Layout>
+    <>
       <Title size="large">주문 내역</Title>
       <OrderListStyle>
         <table>
@@ -76,7 +75,7 @@ export default function OrderList() {
           </tbody>
         </table>
       </OrderListStyle>
-    </Layout>
+    </>
   );
 }
 
