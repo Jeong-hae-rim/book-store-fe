@@ -7,6 +7,7 @@ import { UserProps, useAuth } from "@/hooks/useAuth";
 import Button from "@/components/common/Button";
 import InputText from "@/components/common/InputText";
 
+
 export default function SignUpForm() {
   const { userSignUp } = useAuth();
 
