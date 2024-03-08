@@ -18,6 +18,8 @@ import Cart from "@/pages/cart_page/Cart";
 import Order from "@/pages/order_page/Order";
 import OrderList from "@/pages/order_page/OrderList";
 import Layout from "./components/layout/Layout";
+import { QueryClientProvider } from "react-query";
+import { queryClient } from "./api/queryClient";
 
 const routerList = [
   {
@@ -94,9 +96,11 @@ const router = createBrowserRouter(
 
 function App() {
   return (
-    <BookStoreThemeProvider>
-      <RouterProvider router={router} />
-    </BookStoreThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <BookStoreThemeProvider>
+        <RouterProvider router={router} />
+      </BookStoreThemeProvider>
+    </QueryClientProvider>
   );
 }
 
