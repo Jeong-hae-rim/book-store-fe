@@ -1,30 +1,18 @@
-import { httpClient } from "@/api/http";
-import { SignUpProps } from "@/components/form/SignUpForm";
+import { requestHandler } from "@/api/http";
+import { UserProps } from "@/hooks/useAuth";
 
-export const signUp = async (userData: SignUpProps) => {
-  const response = await httpClient.post("/users/join", userData);
-
-  return response.data;
+export const signUp = async (userData: UserProps) => {
+  return await requestHandler("post", "/users/join", userData);
 };
 
-export const resetRequest = async (data: SignUpProps) => {
-  const response = await httpClient.post("/users/reset", data);
-
-  return response.data;
+export const resetRequest = async (data: UserProps) => {
+  return await requestHandler("post", "/users/reset", data);
 };
 
-export const resetPassword = async (data: SignUpProps) => {
-  const response = await httpClient.put("/users/reset", data);
-
-  return response.data;
+export const resetPassword = async (data: UserProps) => {
+  return await requestHandler("put", "/users/reset", data);
 };
 
-interface LoginResponse {
-  token: string;
-}
-
-export const login = async (data: SignUpProps) => {
-  const response = await httpClient.post<LoginResponse>("/users/login", data);
-
-  return response.data;
+export const login = async (data: UserProps) => {
+  return await requestHandler<UserProps>("post", "/users/login", data);
 };

@@ -11,7 +11,6 @@ import { useAlert } from "@/hooks/useAlert";
 import { FaShoppingCart } from "react-icons/fa";
 import Title from "@/components/common/Title";
 import Empty from "@/components/common/Empty";
-import Layout from "@/components/layout/Layout";
 import Button from "@/components/common/Button";
 import CartItem from "@/components/cart/CartItem";
 import CartSummary from "@/components/cart/CartSummary";
@@ -75,7 +74,7 @@ export default function Cart() {
   };
 
   return (
-    <Layout>
+    <>
       <Title size="large">장바구니</Title>
       <CartStyle>
         {!isEmpty && (
@@ -110,7 +109,7 @@ export default function Cart() {
           />
         )}
       </CartStyle>
-    </Layout>
+    </>
   );
 }
 

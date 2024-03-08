@@ -17,12 +17,14 @@ import BookDetail from "@/pages/book_page/BookDetail";
 import Cart from "@/pages/cart_page/Cart";
 import Order from "@/pages/order_page/Order";
 import OrderList from "@/pages/order_page/OrderList";
+import Layout from "./components/layout/Layout";
+import { QueryClientProvider } from "react-query";
+import { queryClient } from "./api/queryClient";
 
-const router = createBrowserRouter([
+const routerList = [
   {
     path: "/",
     element: <Home />,
-    errorElement: <Error />,
   },
   {
     path: "/books",
@@ -80,13 +82,25 @@ const router = createBrowserRouter([
     path: "/orderlist",
     element: <OrderList />,
   },
-]);
+];
+
+const router = createBrowserRouter(
+  routerList.map((item) => {
+    return {
+      ...item,
+      element: <Layout>{item.element}</Layout>,
+      errorElement: <Error />,
+    };
+  })
+);
 
 function App() {
   return (
-    <BookStoreThemeProvider>
-      <RouterProvider router={router} />
-    </BookStoreThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <BookStoreThemeProvider>
+        <RouterProvider router={router} />
+      </BookStoreThemeProvider>
+    </QueryClientProvider>
   );
 }
 
